@@ -90,9 +90,9 @@ const displayMovements = function (acc, sort = false) {
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
-    const date = new Date(currentAccount.movements[i]);
+    const date = new Date(currentAccount.movementsDates[i]);
     const day = `${date.getDate()}`.padStart(2, 0);
-    const month = `${date.getMonth()}`.padStart(2, 0);
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
     const year = `${date.getFullYear()}`.padStart(2, 0);
     const displayDate = `${day}/${month}/${year}`;
 
@@ -188,6 +188,13 @@ btnLogin.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    // Display current Date
+    const currentDate = new Date(currentAccount.movementsDates[-1]);
+    const day = `${date.getDate()}`.padStart(2, 0);
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    const year = `${date.getFullYear()}`.padStart(2, 0);
+    const displayDate = `${day}/${month}/${year}`;
   }
 });
 
