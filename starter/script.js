@@ -190,11 +190,12 @@ btnLogin.addEventListener('click', function (e) {
     updateUI(currentAccount);
 
     // Display current Date
-    const currentDate = new Date(currentAccount.movementsDates[-1]);
-    const day = `${date.getDate()}`.padStart(2, 0);
-    const month = `${date.getMonth() + 1}`.padStart(2, 0);
-    const year = `${date.getFullYear()}`.padStart(2, 0);
+    const currentDate = new Date(currentAccount.movementsDates[0]);
+    const day = `${currentDate.getDate()}`.padStart(2, 0);
+    const month = `${currentDate.getMonth() + 1}`.padStart(2, 0);
+    const year = `${currentDate.getFullYear()}`.padStart(2, 0);
     const displayDate = `${day}/${month}/${year}`;
+    labelDate.textContent = `${displayDate}`;
   }
 });
 
